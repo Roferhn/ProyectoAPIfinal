@@ -22,7 +22,8 @@ public class adapter extends RecyclerView.Adapter<adapter.ViewHolder> {
     private List<Juegos> mDatos;
     RequestOptions option;
 
-
+    public adapter() {
+    }
 
     public adapter(Context mContext, List<Juegos> lst) {
         this.mContext = mContext;
