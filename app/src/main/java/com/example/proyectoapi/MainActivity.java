@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        recyclerView = findViewById(R.id.rv);
         jsonrequest();
 
 
@@ -86,13 +86,9 @@ public class MainActivity extends AppCompatActivity {
 
                 Toast.makeText(MainActivity.this,"Size of List" + String.valueOf(Ljuegos.size()),Toast.LENGTH_SHORT).show();
                 Toast.makeText(MainActivity.this, Ljuegos.get(1).toString(),Toast.LENGTH_SHORT).show();
-                //setRvadapter(Ljuegos);
 
-                adapter mAdapter = new adapter(MainActivity.this, Ljuegos);
-                recyclerView = findViewById(R.id.rv);
-                recyclerView.setHasFixedSize(true);
-                recyclerView.setAdapter(mAdapter);
-                recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                setRvadapter(Ljuegos);
+
 
 
 
@@ -114,7 +110,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void setRvadapter(List<Juegos> lst) {
 
+        adapter mAdapter = new adapter(this, Ljuegos);
 
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(mAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
 
